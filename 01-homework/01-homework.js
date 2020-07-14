@@ -3,30 +3,30 @@ const priceOfJeans = 123.965;
 const priceOfTshort = 90.2345;
 const budget = 500;
 
-let priceMax = Math.max(priceOfSocks, priceOfJeans, priceOfTshort);
-let priceMin = Math.min(priceOfSocks, priceOfJeans, priceOfTshort);
+const priceMax = Math.max(priceOfSocks, priceOfJeans, priceOfTshort);
+const priceMin = Math.min(priceOfSocks, priceOfJeans, priceOfTshort);
 console.log("The highest price is: " + priceMax);
 console.log("The lowest price is: " + priceMin);
 
-let priceTotal = priceOfSocks + priceOfJeans + priceOfTshort;
+const priceTotal = priceOfSocks + priceOfJeans + priceOfTshort;
 console.log("The total price is: " + priceTotal);
 
-let priceTotalNoCents = Math.floor(priceOfSocks) + Math.floor(priceOfJeans) + Math.floor(priceOfTshort);
+const priceTotalNoCents = Math.floor(priceOfSocks) + Math.floor(priceOfJeans) + Math.floor(priceOfTshort);
 console.log("The total price calculated without cents rounded down is: " + priceTotalNoCents );
 
 function MyRound100(val) {
   return Math.round(val / 100) * 100;
 }
-let priceTotalRounded = MyRound100(priceTotalNoCents)
+const priceTotalRounded = MyRound100(priceTotalNoCents)
 console.log("The total price rounded to hundreds is: " + priceTotalRounded );
 
-let isEven = Math.floor(priceTotal) % 2 ? false : true;
+const isEven = Math.floor(priceTotal) % 2 ? false : true;
 console.log("Is the total price rounded down is an even number? " + isEven);
 
-let change = budget - priceTotal;
+const change = budget - priceTotal;
 console.log("The change from 500 is " + change);
 
-let medianRounded = (priceTotal / 3).toFixed(2);
+const medianRounded = (priceTotal / 3).toFixed(2);
 console.log("The median value of prices rounded to two digits is " + medianRounded);
 
 //Last question
