@@ -1,9 +1,11 @@
-let priceOfSocks = 15.678;
-let priceOfJeans = 123.965;
-let priceOfTshort = 90.2345;
+const priceOfSocks = 15.678;
+const priceOfJeans = 123.965;
+const priceOfTshort = 90.2345;
 
-console.log("The highest price is: " + Math.max(priceOfSocks, priceOfJeans, priceOfTshort));
-console.log("The lowest price is: " +Math.min(priceOfSocks, priceOfJeans, priceOfTshort));
+let priceMax = Math.max(priceOfSocks, priceOfJeans, priceOfTshort);
+let priceMin = Math.min(priceOfSocks, priceOfJeans, priceOfTshort);
+console.log("The highest price is: " + priceMax);
+console.log("The lowest price is: " + priceMin);
 
 let priceTotal = priceOfSocks + priceOfJeans + priceOfTshort;
 console.log("The total price is: " + priceTotal);
@@ -14,12 +16,10 @@ console.log("The total price calculated without cents rounded down is: " + price
 function MyRound100(val) {
   return Math.round(val / 100) * 100;
 }
-console.log("The total price rounded to hundreds is: " + MyRound100(priceTotalNoCents) );
+let priceTotalRounded = MyRound100(priceTotalNoCents)
+console.log("The total price rounded to hundreds is: " + priceTotalRounded );
 
-let isEven = false;
-if (Math.floor(priceTotal) % 2 === 0){
-  isEven = true;
-}
+let isEven = Math.floor(priceTotal) % 2 ? false : true;
 console.log("Is the total price rounded down is an even number? " + isEven);
 
 let change = 500 - priceTotal;
@@ -34,5 +34,19 @@ let discount = (Math.random()*100).toFixed(0);
 let toPay = (priceTotal * (1 - discount / 100)).toFixed(2);
 let profit = (priceTotal/2 - priceTotal*discount/100).toFixed(2);
 console.log("Your discount is: " + discount +"%");
-console.log("To pay is: " + toPay);
+console.log("To pay: " + toPay);
 console.log("The profit is: " + profit);
+
+//Advanced
+
+console.log(`The highest price is: ${priceMax} \n 
+The lowest price is: ${priceMin} \n 
+The total price is: ${priceTotal} \n 
+The total price calculated without cents rounded down is: ${priceTotalNoCents} \n
+The total price rounded to hundreds is: ${priceTotalRounded} \n 
+Is the total price rounded down is an even number? ${isEven} \n
+The change from 500 is ${change} \n
+The median value of prices rounded to two digits is ${medianRounded} \n
+Your discount is: ${discount} % \n
+To pay: ${toPay} \n
+The profit is: ${profit}`);
