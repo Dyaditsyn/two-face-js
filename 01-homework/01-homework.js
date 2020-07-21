@@ -1,3 +1,5 @@
+"use strict";
+
 const priceOfSocks = 15.678;
 const priceOfJeans = 123.965;
 const priceOfTshort = 90.2345;
