@@ -1,7 +1,7 @@
 "use strict";
 
 let firstNum, secondNum, sum = 0,
-    choice;
+    isSkip;
 
 function myInteger(param){
     if (  param === null || !param.trim()){
@@ -28,11 +28,11 @@ do{
     askReInput(secondNum);
 } while ( !(myInteger(secondNum)) || (+secondNum < +firstNum) )
 
-choice = confirm("Wish you skip even numbers? OK - YES, Cancel - NO");
+isSkip = confirm("Wish you skip even numbers? OK - YES, Cancel - NO");
 
 for (let i = +firstNum; i <= +secondNum; i++){
 
-    if (choice){ 
+    if (isSkip){ 
 
         if (i % 2){
             sum += i;
@@ -45,11 +45,11 @@ for (let i = +firstNum; i <= +secondNum; i++){
 
 alert("Your sum is: " + sum);
 
-console.log(`The first number is: ${firstNum} \nThe second number is: ${secondNum} \nWish you skip even numbers? ${choice} \nThe sum is: ${sum}`);
+console.log(`The first number is: ${firstNum} \nThe second number is: ${secondNum} \nWish you skip even numbers? ${isSkip} \nThe sum is: ${sum}`);
 
 document.write(`The first number is: ${firstNum}<br>
 The second number is: ${secondNum}<br>
-Wish you skip even numbers? ${choice}<br>
+Wish you skip even numbers? ${isSkip}<br>
 The sum is: ${sum}`);
 
 
