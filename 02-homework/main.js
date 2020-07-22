@@ -3,14 +3,14 @@
 let N, M, choice, sum = 0;
 
 do{
-    N = +prompt("Please enter the lower limit of numbers to sum - must be integer");
-} while (  !(Number.isInteger(N)) )
+    N = prompt("Please enter the lower limit of numbers to sum - must be integer");
+} while (  !(Number.isInteger(+N)) || (N === null) )
 
 console.log("The first number is: " + N)
 
 do{
     M = +prompt("Please enter the upper limit of numbers to sum - must be integer bigger than lower");
-} while ( !(Number.isInteger(M)) || (M < N) )
+} while ( !(Number.isInteger(+M)) || (M < N) || (N === null))
 
 console.log("The second number is: " + M)
 
@@ -18,7 +18,7 @@ choice = confirm("Wish you skip even numbers? OK - YES, Cancel - NO");
 
 console.log("Skip even numbers: " + choice)
 
-for (let i = N; i <= M; i++){
+for (let i = +N; i <= +M; i++){
 
     if (choice){ 
 
