@@ -3,8 +3,8 @@
 let N, M, sum = 0,
     choice;
 
-function MyInteger(param){
-    if ( param === "" || param === " " || param === null){
+function myInteger(param){
+    if (  param === null || !param.trim()){
         return false;
     } else {
         return Number.isInteger(+param)
@@ -13,12 +13,12 @@ function MyInteger(param){
 
 do{
     N = prompt("Please enter the lower limit of numbers to sum - must be integer", [0]);
-} while (  !(MyInteger(N)) )
+} while (  !(myInteger(N)) )
 
 
 do{
     M = prompt("Please enter the upper limit of numbers to sum - must be integer bigger than lower", [0]);
-} while ( !(MyInteger(M)) || (+M < +N) )
+} while ( !(myInteger(M)) || (+M < +N) )
 
 choice = confirm("Wish you skip even numbers? OK - YES, Cancel - NO");
 
