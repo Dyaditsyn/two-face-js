@@ -1,8 +1,6 @@
 "use strict";
 
-let N = 0,
-    M = 0,  
-    sum = 0,
+let N, M, sum = 0,
     choice;
 
 function MyInteger(param){
@@ -14,20 +12,15 @@ function MyInteger(param){
 }
 
 do{
-    N = prompt("Please enter the lower limit of numbers to sum - must be integer");
+    N = prompt("Please enter the lower limit of numbers to sum - must be integer", [0]);
 } while (  !(MyInteger(N)) )
 
-console.log("The first number is: " + N)
 
 do{
-    M = prompt("Please enter the upper limit of numbers to sum - must be integer bigger than lower");
+    M = prompt("Please enter the upper limit of numbers to sum - must be integer bigger than lower", [0]);
 } while ( !(MyInteger(M)) || (+M < +N) )
 
-console.log("The second number is: " + M)
-
 choice = confirm("Wish you skip even numbers? OK - YES, Cancel - NO");
-
-console.log("Skip even numbers: " + choice)
 
 for (let i = +N; i <= +M; i++){
 
@@ -42,7 +35,13 @@ for (let i = +N; i <= +M; i++){
     }
 } 
 
-console.log("The sum is: " + sum)
-
 alert("Your sum is: " + sum);
+
+console.log(`The first number is: ${N} \nThe second number is: ${M} \nWish you skip even numbers? ${choice} \nThe sum is: ${sum}`);
+
+document.write(`The first number is: ${N}<br>
+The second number is: ${M}<br>
+Wish you skip even numbers? ${choice}<br>
+The sum is: ${sum}`);
+
 
