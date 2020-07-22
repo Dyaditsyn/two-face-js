@@ -11,13 +11,21 @@ function myInteger(param){
     }
 }
 
+function askReInput(param){
+    if ( !(myInteger(param)) ) {
+        alert("Wrong input! Please enter integer only");
+    }
+}
+
 do{
     N = prompt("Please enter the lower limit of numbers to sum - must be integer", [0]);
+    askReInput(N);
 } while (  !(myInteger(N)) )
 
 
 do{
     M = prompt("Please enter the upper limit of numbers to sum - must be integer bigger than lower", [0]);
+    askReInput(M);
 } while ( !(myInteger(M)) || (+M < +N) )
 
 choice = confirm("Wish you skip even numbers? OK - YES, Cancel - NO");
