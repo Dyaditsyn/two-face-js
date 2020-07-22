@@ -1,6 +1,6 @@
 "use strict";
 
-let N, M, sum = 0,
+let firstNum, secondNum, sum = 0,
     choice;
 
 function myInteger(param){
@@ -18,19 +18,19 @@ function askReInput(param){
 }
 
 do{
-    N = prompt("Please enter the lower limit of numbers to sum - must be integer", [0]);
-    askReInput(N);
-} while (  !(myInteger(N)) )
+    firstNum = prompt("Please enter the lower limit of numbers to sum - must be integer", [0]);
+    askReInput(firstNum);
+} while (  !(myInteger(firstNum)) )
 
 
 do{
-    M = prompt("Please enter the upper limit of numbers to sum - must be integer bigger than lower", [0]);
-    askReInput(M);
-} while ( !(myInteger(M)) || (+M < +N) )
+    secondNum = prompt("Please enter the upper limit of numbers to sum - must be integer bigger than lower", [0]);
+    askReInput(secondNum);
+} while ( !(myInteger(secondNum)) || (+secondNum < +firstNum) )
 
 choice = confirm("Wish you skip even numbers? OK - YES, Cancel - NO");
 
-for (let i = +N; i <= +M; i++){
+for (let i = +firstNum; i <= +secondNum; i++){
 
     if (choice){ 
 
@@ -45,10 +45,10 @@ for (let i = +N; i <= +M; i++){
 
 alert("Your sum is: " + sum);
 
-console.log(`The first number is: ${N} \nThe second number is: ${M} \nWish you skip even numbers? ${choice} \nThe sum is: ${sum}`);
+console.log(`The first number is: ${firstNum} \nThe second number is: ${secondNum} \nWish you skip even numbers? ${choice} \nThe sum is: ${sum}`);
 
-document.write(`The first number is: ${N}<br>
-The second number is: ${M}<br>
+document.write(`The first number is: ${firstNum}<br>
+The second number is: ${secondNum}<br>
 Wish you skip even numbers? ${choice}<br>
 The sum is: ${sum}`);
 
