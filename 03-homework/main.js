@@ -79,6 +79,29 @@ function countLetter(letter, string){
 // 7. Створіть функцію, яка конвертує долари в гривні та навпаки в залежності від наявності символа $ або UAH в рядку. Приклад: convertCurrency("100$") -> 2500 грн. або convertCurrency("2500UAH") -> 100$
 // Врахуйте, інші валюти не конвертуються, потрібно виводити помилку, і також регістр uah не має значення.
 
+function convertCurrency(currency){
+    const value = parseInt(currency);
+    if(currency.includes("$") && !(isNaN(value)) ){
+        return value*25 + "UAH";
+    }
+    else if (currency.toLowerCase().includes("uah")  && !(isNaN(value)) ){
+        return value/25 + "$";
+    }
+    else return "Invalid input. Please enter currency to convert in UAH or $";
+}
+
+console.log(convertCurrency("100$"));
+console.log(convertCurrency("2500UAH"));
+console.log(convertCurrency("s100$"));
+console.log(convertCurrency("s2500UAH"));
+console.log(convertCurrency("2500uAh"));
+console.log(convertCurrency("100"));
+console.log(convertCurrency("kdfghkhg"));
+console.log(convertCurrency(" "));
+console.log(convertCurrency("$UAH"));
+
+
+
 // 8. Створіть функцію генерації випадкового паролю (тільки числа), довжина встановлюється користувачем або по замовчуванню = 8 символам.
 // Приклад: getRandomPassword(4) -> 1875, getRandomPassword() -> 87240124
 
