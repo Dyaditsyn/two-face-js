@@ -66,9 +66,16 @@ function getRandomNumber(minValue, maxValue){
 // 6. Створити функцію, яка рахує скільки разів певна буква повторюється в слові. Приклад: countLetter("а", "Асталавіста") -> 4
 
 function countLetter(letter, string){
-
+    letter = letter.toLowerCase();
+    const stringByLetter = string.toLowerCase().split("");
+    let counter = 0;
+    for (let i = 0; i < stringByLetter.length; i++){
+        if ( letter === stringByLetter[i]){
+            counter++;
+        }
+    }
+    return counter;
 }
-
 // 7. Створіть функцію, яка конвертує долари в гривні та навпаки в залежності від наявності символа $ або UAH в рядку. Приклад: convertCurrency("100$") -> 2500 грн. або convertCurrency("2500UAH") -> 100$
 // Врахуйте, інші валюти не конвертуються, потрібно виводити помилку, і також регістр uah не має значення.
 
