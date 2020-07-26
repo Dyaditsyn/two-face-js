@@ -3,19 +3,19 @@
 // 1. Створити функцію getMaxDigit(number) – яка отримує будь-яке число та виводить найбільшу цифру в цьому числі. Приклади: 1236 -> 6, 987 -> 9, 385 -> 8
 
 function getMaxDigit(number){
-    let base = 10;
+    const base = 10;
     let maxDigit = 0;
     let nextDigit;
 
     if ( (number == "") || (isNaN(number))  ) {
-        return NaN;
+       return NaN;
     }
 
     number = Math.abs(number);
     
     while ( number){
-        nextDigit = number % 10;
-        number /= 10;
+        nextDigit = number % base;
+        number /= base;
         if ( nextDigit > maxDigit){
             maxDigit = nextDigit
         }
@@ -51,9 +51,23 @@ function capitalizeName(Name){
 
 // 4. Створити функцію, яка вираховує суму, що залишається після оплати податку від зарабітньої плати. (Податок = 18% + 1.5% -> 19.5%). Приклад: 1000 -> 805
 
+function getNetPay(grossSalary){
+    const tax1 = 0.18;
+    const tax2 = 0.015;
+    return grossSalary*(1-tax1-tax2);
+}
+
 // 5. Створити функцію, яка повертає випадкове ціле число в діапазоні від N до M. Приклад: getRandomNumber(1, 10) -> 5
 
+function getRandomNumber(minValue, maxValue){
+    return Math.floor(minValue + (Math.random()*((maxValue - minValue) + 1)));
+}
+
 // 6. Створити функцію, яка рахує скільки разів певна буква повторюється в слові. Приклад: countLetter("а", "Асталавіста") -> 4
+
+function countLetter(letter, string){
+
+}
 
 // 7. Створіть функцію, яка конвертує долари в гривні та навпаки в залежності від наявності символа $ або UAH в рядку. Приклад: convertCurrency("100$") -> 2500 грн. або convertCurrency("2500UAH") -> 100$
 // Врахуйте, інші валюти не конвертуються, потрібно виводити помилку, і також регістр uah не має значення.
