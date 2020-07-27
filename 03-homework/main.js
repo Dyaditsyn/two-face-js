@@ -90,20 +90,22 @@ function convertCurrency(currency){
     else return "Invalid input. Please enter currency to convert in UAH or $";
 }
 
-console.log(convertCurrency("100$"));
-console.log(convertCurrency("2500UAH"));
-console.log(convertCurrency("s100$"));
-console.log(convertCurrency("s2500UAH"));
-console.log(convertCurrency("2500uAh"));
-console.log(convertCurrency("100"));
-console.log(convertCurrency("kdfghkhg"));
-console.log(convertCurrency(" "));
-console.log(convertCurrency("$UAH"));
-
-
-
 // 8. Створіть функцію генерації випадкового паролю (тільки числа), довжина встановлюється користувачем або по замовчуванню = 8 символам.
 // Приклад: getRandomPassword(4) -> 1875, getRandomPassword() -> 87240124
+
+function getRandomPassword(passLength = 8){
+
+    if ( (isNaN(passLength)) || (+passLength === 0)){
+        return "Invalid password length"
+    }
+
+    let password = "";
+    for (let i = 0; i < passLength; i++){
+        password += Math.floor(Math.random()*10);
+    }
+    return password
+}
+
 
 // 9. Створіть функцію, яка видаляє всі букви з речення. Приклад: deleteLetters('a', "blablabla") -> "blblbl"
 
