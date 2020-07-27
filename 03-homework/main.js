@@ -139,5 +139,5 @@ function isPalyndrom(str){
 // 11. Створіть функцію, яка видалить з речення букви, які зустрічаються більше 1 разу. Приклад: deleteDuplicateLetter("Бісквіт був дуже ніжним") -> "сктдеим"
 
 function deleteDuplicateLetter(str){
-
+blabla
 }
