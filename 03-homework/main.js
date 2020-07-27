@@ -2,20 +2,20 @@
 
 // 1. Створити функцію getMaxDigit(number) – яка отримує будь-яке число та виводить найбільшу цифру в цьому числі. Приклади: 1236 -> 6, 987 -> 9, 385 -> 8
 
-function getMaxDigit(number){
+function getMaxDigit(num){
     const base = 10;
     let maxDigit = 0;
     let nextDigit;
 
-    if ( (number == "") || (isNaN(number))  ) {
+    if ( (num == "") || (isNaN(num))  ) {
        return NaN;
     }
 
-    number = Math.abs(number);
+    num = Math.abs(num);
     
-    while ( number){
-        nextDigit = number % base;
-        number /= base;
+    while ( num ) {
+        nextDigit = num % base;
+        num /= base;
         if ( nextDigit > maxDigit){
             maxDigit = nextDigit
         }
@@ -59,27 +59,31 @@ function getNetPay(grossSalary){
 
 // 5. Створити функцію, яка повертає випадкове ціле число в діапазоні від N до M. Приклад: getRandomNumber(1, 10) -> 5
 
-function getRandomNumber(minValue, maxValue){
-    return Math.floor(minValue + (Math.random()*((maxValue - minValue) + 1)));
+function getRandomNumber(minVal, maxVal){
+    return Math.floor(minVal + (Math.random()*((maxVal - minVal) + 1)));
 }
 
 // 6. Створити функцію, яка рахує скільки разів певна буква повторюється в слові. Приклад: countLetter("а", "Асталавіста") -> 4
 
-function countLetter(letter, string){
+function countLetter(letter, str){
+
     letter = letter.toLowerCase();
-    const stringByLetter = string.toLowerCase().split("");
+    const splitString = str.toLowerCase().split("");
     let counter = 0;
-    for (let i = 0; i < stringByLetter.length; i++){
-        if ( letter === stringByLetter[i]){
+
+    for (let i = 0; i < splitString.length; i++){
+        if ( letter === splitString[i]){
             counter++;
         }
     }
-    return counter;
+    return counter ? counter : `The letter ${letter} is not found in the word`;
 }
+
 // 7. Створіть функцію, яка конвертує долари в гривні та навпаки в залежності від наявності символа $ або UAH в рядку. Приклад: convertCurrency("100$") -> 2500 грн. або convertCurrency("2500UAH") -> 100$
 // Врахуйте, інші валюти не конвертуються, потрібно виводити помилку, і також регістр uah не має значення.
 
 function convertCurrency(currency){
+
     const value = parseInt(currency);
     if(currency.includes("$") && !(isNaN(value)) ){
         return value*25 + "UAH";
@@ -106,9 +110,34 @@ function getRandomPassword(passLength = 8){
     return password
 }
 
-
 // 9. Створіть функцію, яка видаляє всі букви з речення. Приклад: deleteLetters('a', "blablabla") -> "blblbl"
+
+function deleteLetter(letter, str){
+
+    letter = letter.toLowerCase();
+    const splitString = str.toLowerCase().split("");
+    let counter = 0;
+    
+    for (let i = 0; i < splitString.length; i++){
+        if ( letter === splitString[i]){
+            splitString.splice(i, 1);
+            counter++;
+        }
+    }
+    return counter ? splitString.join('') : `The letter ${letter} is not found in the word`;
+}
 
 // 10. Створіть функцію, яка перевіряє, чи є слово паліндромом. Приклад: isPalyndrom("мадам") -> true, isPalyndrom("кокос") -> false, isPalyndrom("Я несу гусеня") -> true
 
+function isPalyndrom(str){
+  
+    const original = str.toLowerCase().split(' ').join(''); // one word low case
+    const reverse = original.split('').reverse().join(''); // reverse one word
+    return (original === reverse);
+  }
+
 // 11. Створіть функцію, яка видалить з речення букви, які зустрічаються більше 1 разу. Приклад: deleteDuplicateLetter("Бісквіт був дуже ніжним") -> "сктдеим"
+
+function deleteDuplicateLetter(str){
+
+}
