@@ -72,8 +72,23 @@ function getMarks (studArr, markArr){
 // 4. Поставте кожній парі випадкову оцінку(від 1 до 5) за проєкт(тут функція буде нечистою, 
 // але не повинна мутувати массив): [["Олександр і Олена", "Теорія автоматів", 5], [...], [...]]
 
-function getMarksCouple(){
+function getPairMarks(arr){
+    const randomMarks = [];
+    const pairMarks = [];
 
+    for (let i = 0; i < arr.length; i++){
+        randomMarks.push(getRandomMark(1, 5)) ;
+    }
+
+    for (let i = 0; i < arr.length; i++){
+        pairMarks.push([arr[i].toString().split(',').join('", "'), randomMarks[i]]);
+    }
+
+    return pairMarks;
+}
+
+function getRandomMark(minVal, maxVal){
+    return Math.floor(+minVal + (Math.random()*((+maxVal - +minVal) + 1)));
 }
 
 // Consol - output
@@ -86,3 +101,6 @@ console.log(pairsThemes);
 
 const studentMarks = getMarks(students, marks);
 console.log(studentMarks);
+
+const pairMarks = getPairMarks(pairsThemes);
+console.log(pairMarks);
