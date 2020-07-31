@@ -57,10 +57,24 @@ function getThemes (pairsArr, themesArr){
 
 // 3. Зіставте оцінки(marks) зі студентом(students): [["Саша", 4], [...], [...]]
 
-
+function getMarks (studArr, markArr){
+    const studentMarks = [];
+    if (studArr.length != markArr.length){
+        return "Sorry, can't assign marks for all students"
+    }
+    
+    for (let i = 0; i < studArr.length; i++){
+        studentMarks.push([studArr[i], markArr[i]]);
+    }
+    return studentMarks;
+}
 
 // 4. Поставте кожній парі випадкову оцінку(від 1 до 5) за проєкт(тут функція буде нечистою, 
 // але не повинна мутувати массив): [["Олександр і Олена", "Теорія автоматів", 5], [...], [...]]
+
+function getMarksCouple(){
+
+}
 
 // Consol - output
 
@@ -69,3 +83,6 @@ console.log(pairs);
 
 const pairsThemes = getThemes(pairs, themes);
 console.log(pairsThemes);
+
+const studentMarks = getMarks(students, marks);
+console.log(studentMarks);
