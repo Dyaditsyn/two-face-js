@@ -7,19 +7,19 @@ const marks = [4, 5, 5, 3, 4, 5];
 // 1. Розділіть студентів на пари(хлопець + дівчина) для работи над проєктом. 
 // У вас повинен вийти вкладений масив з парами студентів: [["Олександр", "Олена"], [..], [...]];
 
-function getPairs(students){
+function getPairs(arr){
     const boys = [];
     const girls = [];
     const pairs = [];
     let student = "";
 
-    for (let i = 0; i < students.length; i++){
-        student = students[i].split('').reverse();
+    for (let i = 0; i < arr.length; i++){
+        student = arr[i].split('').reverse();
             if (student[0].toLowerCase()  === 'а' ){
-            girls.push(students[i]);
+            girls.push(arr[i]);
             } 
             else {
-            boys.push(students[i]);
+            boys.push(arr[i]);
             }
     }
 
@@ -33,10 +33,27 @@ function getPairs(students){
     return pairs;
 }
 
+
 // 2. Зіставте пари з попереднього завдання та теми проєктів, над якими студенти будуть працювати. 
 // Повинен вийти вкладений масив виду: [["Олександр і Олена", "Теорія автоматів"], [...], [...]]
 
+function getThemes (pairsArr, themesArr){
+    const newPairs = [];
+    const pairsThemes = [];
 
+    if (pairsArr.length != themesArr.length){
+        return "Sorry, can't assign themes for all pairs"
+    }
+
+    for (let i = 0; i < pairsArr.length; i++){
+        newPairs.push(pairsArr[i].toString().replace(",", " і "));
+      }
+
+    for (let i = 0; i < newPairs.length; i++){
+        pairsThemes.push([newPairs[i], themesArr[i]]);
+    }
+    return pairsThemes;
+}
 
 // 3. Зіставте оцінки(marks) зі студентом(students): [["Саша", 4], [...], [...]]
 
@@ -46,5 +63,9 @@ function getPairs(students){
 // але не повинна мутувати массив): [["Олександр і Олена", "Теорія автоматів", 5], [...], [...]]
 
 // Consol - output
+
 const pairs = getPairs(students);
 console.log(pairs);
+
+const pairsThemes = getThemes(pairs, themes);
+console.log(pairsThemes);
