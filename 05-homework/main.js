@@ -18,7 +18,7 @@ function getRandomArray(length, min, max){
 }
 
 const randomArray = getRandomArray(15, 1, 100);
-console.log(`Function1: getRandomArray: ${randomArray}`);
+console.log(`Function1: getRandomArray: `, randomArray);
 
 // 3. Створіть функцію getAverage(...numbers) – яка рахує середнє арифметичне всіх переданих в неї аргументів. 
 // НЕЦІЛІ ЧИСЛА ІГНОРУЮТЬСЯ
@@ -35,7 +35,7 @@ function getAverage (...numbers){
   }
 
 const average = getAverage(6, 2, 55, 11, 78, 2, 55, 77, 57, 87, 23, 2, 56, 3, 2);
-console.log(`Function3: getAverage of (6, 2, 55, 11, 78, 2, 55, 77, 57, 87, 23, 2, 56, 3, 2): =>  ${average}`);
+console.log(`Function3: getAverage of (6, 2, 55, 11, 78, 2, 55, 77, 57, 87, 23, 2, 56, 3, 2): =>  `, average);
 
 // 4. Створіть функцію getMedian(...numbers) – яка рахує медіану всіх переданих в неї аргументів. НЕЦІЛІ ЧИСЛА ІГНОРУЮТЬСЯ
 // Приклад: getMedian(6, 2, 55, 11, 78, 2, 55, 77, 57, 87, 23, 2, 56, 3, 2) –> 23 
@@ -53,11 +53,11 @@ function getMedian (...numbers) {
 }
 
 let median = getMedian(6, 2, 55, 11, 78, 2, 55, 77, 57, 87, 23, 2, 56, 3, 2);
-console.log(`Function4: getMedian of (6, 2, 55, 11, 78, 2, 55, 77, 57, 87, 23, 2, 56, 3, 2): => ${median}`);
+console.log(`Function4: getMedian of (6, 2, 55, 11, 78, 2, 55, 77, 57, 87, 23, 2, 56, 3, 2): =>`, median);
 median = getMedian(1, 2, 3, 4);
-console.log(`Function4: getMedian of (1, 2, 3, 4): => ${median}`);
+console.log(`Function4: getMedian of (1, 2, 3, 4): => `, median);
 median = getMedian(1, 2, 3, 4, 5);
-console.log(`Function4: getMedian of (1, 2, 3, 4, 5): => ${median}`);
+console.log(`Function4: getMedian of (1, 2, 3, 4, 5): => `,median);
 
 // 5. Створіть функцію filterEvenNumbers(...numbers) – яка фільтрує парні числа передані як аргументи функції
 // Приклад: filterEvenNumbers(1, 2, 3, 4, 5, 6) -> [1, 3, 5]
@@ -69,7 +69,7 @@ function filterEvenNumbers (...numbers) {
 }
 
 const oddNumbers = filterEvenNumbers(1, 2, 3, 4, 5);
-console.log(`Function5: filterEvenNumbers of (1, 2, 3, 4, 5): => ${oddNumbers}`);
+console.log(`Function5: filterEvenNumbers of (1, 2, 3, 4, 5): =>`, oddNumbers);
 
 // 6. Створіть функцію countPositiveNumbers(...numbers) – яка порахує кількість чисел більших 0
 // Приклад: countPositiveNumbers(1, -2, 3, -4, -5, 6) -> 3
@@ -81,7 +81,7 @@ function countPositiveNumbers (...numbers) {
 }
 
 const count = countPositiveNumbers (1, -2, 3, -4, -5, 6);
-console.log(`Function6: countPositiveNumbers of (1, -2, 3, -4, -5, 6): =>  ${count}`);
+console.log(`Function6: countPositiveNumbers of (1, -2, 3, -4, -5, 6): =>`,  count);
 
 
 // 7. Створіть функцію getDividedByFive(...numbers) – яка відфільтрує усі елементи в масиві та залишить тільки ті, 
@@ -95,7 +95,7 @@ function getDividedByFive(...numbers) {
 }
 
 const dividedByFive = getDividedByFive(6, 2, 55, 11, 78, 2, 55, 77, 57, 87, 23, 2, 56, 3, 2);
-console.log(`Function7: getDividedByFive of (6, 2, 55, 11, 78, 2, 55, 77, 57, 87, 23, 2, 56, 3, 2): =>  ${dividedByFive}`);
+console.log(`Function7: getDividedByFive of (6, 2, 55, 11, 78, 2, 55, 77, 57, 87, 23, 2, 56, 3, 2): =>`, dividedByFive);
 
 // 8. Створіть функцію replaceBadWords(string) – яка 1) розіб'є фразу на слова, 2) замінить погані слова на зірочки (*). 
 // При вирішенні цього завдання необхідно розбити масив на слова за допомогою функції .split(" "), 
