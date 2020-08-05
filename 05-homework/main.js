@@ -96,6 +96,7 @@ function getDividedByFive(...numbers) {
 
 const dividedByFive = getDividedByFive(6, 2, 55, 11, 78, 2, 55, 77, 57, 87, 23, 2, 56, 3, 2);
 console.log(`Function7: getDividedByFive of (6, 2, 55, 11, 78, 2, 55, 77, 57, 87, 23, 2, 56, 3, 2): =>`, dividedByFive);
+console.log(getDividedByFive(6, 2, 55, 11, 78, 2, 55, 77, 57, 87, 23, 2, 56, 3, 2));
 
 // 8. Створіть функцію replaceBadWords(string) – яка 1) розіб'є фразу на слова, 2) замінить погані слова на зірочки (*). 
 // При вирішенні цього завдання необхідно розбити масив на слова за допомогою функції .split(" "), 
