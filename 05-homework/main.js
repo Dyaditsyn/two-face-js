@@ -77,7 +77,7 @@ console.log(`Function5: filterEvenNumbers of (1, 2, 3, 4, 5): => ${oddNumbers}`)
 // ************ TASK 5 *****************
 
 function countPositiveNumbers (...numbers) {
-    return (numbers.filter( number => number > 2 )).length + 1;
+    return (numbers.filter( number => number > 0 )).length;
 }
 
 const count = countPositiveNumbers (1, -2, 3, -4, -5, 6);
@@ -105,9 +105,20 @@ console.log(`Function7: getDividedByFive of (6, 2, 55, 11, 78, 2, 55, 77, 57, 87
 // Приклад: replaceBadWords("Holy shit!") -> "Holy ****!" 
 // Приклад: replaceBadWords("It's bullshit!") -> "It's bull****!"
 
+function replaceBadWords(string){
+    badWords = [shit, fuck];
+    const splited = string.split(" ");
+    
+}
+
+
 // 9. Створіть функцію divideByThree(word), яка розбиває кожне слово на умовні склади по 3 букви. 
 // Якщо букв менше трьох – не розбиває. Пробіли завжди видаляються. Рядок приводится до нижнього регістру. 
 // Приклад: divideByThree("Commander) -> ["com", "man", "der"] Приклад: divideByThree("live") -> ["liv", "e"]
+
+function divideByThree(word){
+
+}
 
 // 10. Створіть функцію generateCombinations(word), яка видасть всі можливі перестановки(унікальні, без повторень) букв в слові. 
 // Для тестів не передавайте слова в яких більше 10 букв. Краще взагалі обмежити работу функції 10 буквами. 
