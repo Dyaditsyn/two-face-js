@@ -29,6 +29,17 @@ const students = [{
 // 1. Створіть функцію getSubjects(students[0] --> ["Math", "Algorithms", "Data science"] - яка повертає список предметів для конкретного студента. 
 // Зверніть увагу – назву предмету необхідно повертати з великої літери, а _ – замінити на пробіл
 
+function  getSubjects(students){
+    const subjArr = Object.keys(students.subjects);
+    let studSubj = subjArr.map( subject => {
+      return subject.slice(0, 1).toUpperCase() + subject.slice(1).toLowerCase(); 
+    })
+    studSubj = studSubj.map( subject => {
+      return subject.replace("_", " "); 
+    })
+    return studSubj;
+  }
+
 // 2. Створіть функцію getAverageMark(students[0]) --> 3.79 – яка поверне середню оцінку по усім предметам для переданого студента НЕ МАСИВА СТУДЕНТІВ. 
 // Оцінку округліть до 2ого знаку. Можна використовувати функції, написані у попередніх домашніх завданнях :)
 
@@ -41,3 +52,6 @@ const students = [{
 
 // 6. Створіть функцію calculateWordLetters("тест") --> { "т": 2, "е": 1, "с": 1 } – яка повертає обє'кт, в якому ключі це букви у слові, 
 // а значення – кількість їх повторень.
+
+const studSubjects = getSubjects(students[0]);
+console.log(studSubjects);
