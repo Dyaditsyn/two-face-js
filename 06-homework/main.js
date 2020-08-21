@@ -77,12 +77,45 @@ function getStudentInfo(students){
 
 // 4. Ствроіть функцію getStudentsNames(students) --> ["Anton", "Tanya, "Victor"] – яка повертає імена студентів у алфавітному порядку.
 
-
+function getStudentsNames(students){
+    const studentsNames = students.map (student => {
+      return student.name;
+    })
+    return studentsNames.sort();
+  }
 
 // 5. Створіть функцію getBestStudent(students) --> "Anton" – яка повертає кращого студента зі списку по показнику середньої оцінки.
 
+function getStudentsNames(students){
+    const studentsNames = students.map (student => {
+      return student.name;
+    })
+    return studentsNames.sort();
+  }
+
+// 5. Створіть функцію getBestStudent(students) --> "Anton" – яка повертає кращого студента зі списку по показнику середньої оцінки.
+
+function getBestStudent(students){
+  const studentsInfo = students.map (student => {
+    return getStudentInfo(student);
+  })
+  
+  const studentsMarks = studentsInfo.map (mark => {
+    return mark.averageMark;
+  })
+  
+  const maxMark = Math.max(...studentsMarks);
+  
+  const bestStudent = studentsInfo.find(mark => mark.averageMark === maxMark).name;
+
+  return bestStudent;
+}
+
 // 6. Створіть функцію calculateWordLetters("тест") --> { "т": 2, "е": 1, "с": 1 } – яка повертає обє'кт, в якому ключі це букви у слові, 
 // а значення – кількість їх повторень.
+
+
+// Functions output
 
 const studSubjects = getSubjects(students[0]);
 console.log(studSubjects);
@@ -92,3 +125,10 @@ console.log(averageMark);
 
 const studentInfo = getStudentInfo(students[0]);
 console.log(studentInfo);
+
+const studenstNames = getStudentsNames(students);
+console.log(studenstNames);
+
+const bestStudent = getBestStudent(students);
+console.log(bestStudent);
+
