@@ -114,6 +114,14 @@ function getBestStudent(students){
 // 6. Створіть функцію calculateWordLetters("тест") --> { "т": 2, "е": 1, "с": 1 } – яка повертає обє'кт, в якому ключі це букви у слові, 
 // а значення – кількість їх повторень.
 
+function calculateWordLetters(word){
+    const lettersCountObj = {};
+    const lettersArr = word.trim().toLowerCase().split('');
+    lettersArr.forEach(letter => {
+      lettersCountObj[letter] = lettersCountObj[letter] ? (lettersCountObj[letter] + 1) : 1;
+    })
+    return lettersCountObj
+  }
 
 // Functions output
 
@@ -131,4 +139,8 @@ console.log(studenstNames);
 
 const bestStudent = getBestStudent(students);
 console.log(bestStudent);
+
+const lettersCountObj = calculateWordLetters("Тест");
+console.log(lettersCountObj);
+
 
