@@ -43,15 +43,41 @@ function  getSubjects(students){
 // 2. Створіть функцію getAverageMark(students[0]) --> 3.79 – яка поверне середню оцінку по усім предметам для переданого студента НЕ МАСИВА СТУДЕНТІВ. 
 // Оцінку округліть до 2ого знаку. Можна використовувати функції, написані у попередніх домашніх завданнях :)
 
-getAverageMark(students){
-    const subjAverage = [];
+function getAverageMark(students){
+    const averages = [];
+      for ( let key in students.subjects){
+        const subjMarks = students.subjects[key];
+        const subjAverage = getAverage(...subjMarks);
+        averages.push(subjAverage);
+      }
+    const averageMark = getAverage (...averages);
     
-}
+    function getAverage (...numbers){
+      const total = numbers.reduce((total, number) => {
+          return total + number; 
+        }, 0);
+        return total / numbers.length;
+    }
+    
+    return +averageMark.toFixed(2); 
+  }
 
 // 3. Створіть функцію getStudentInfo(students[0]) --> { "course": 3, "name": "Tanya", "averageMark": 3.79} – яка повертає інформацію загального виду 
 // по переданому студенту (вам знадобиться функція з попереднього завдання). ПОвинна бути виведена інформація: курс, ім'я, середня оцінка.
 
+function getStudentInfo(students){
+    const averageMark = getAverageMark(students);
+    const studentInfo = {
+      name: students.name,
+      course: students.course,
+      averageMark: averageMark,
+    };
+    return studentInfo;
+  }
+
 // 4. Ствроіть функцію getStudentsNames(students) --> ["Anton", "Tanya, "Victor"] – яка повертає імена студентів у алфавітному порядку.
+
+
 
 // 5. Створіть функцію getBestStudent(students) --> "Anton" – яка повертає кращого студента зі списку по показнику середньої оцінки.
 
@@ -61,5 +87,8 @@ getAverageMark(students){
 const studSubjects = getSubjects(students[0]);
 console.log(studSubjects);
 
-const studAverageMark = getAverageMark(students[0]);
-console.log(studAverageMark);
+const averageMark = getAverageMark(students[0]);
+console.log(averageMark);
+
+const studentInfo = getStudentInfo(students[0]);
+console.log(studentInfo);
