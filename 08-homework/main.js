@@ -21,28 +21,28 @@ class Student {
     }
 
 getInfo() {
-    if (this.isDissmised){
+    if (this.isDismissed){
         return `Sorry, no such student`
     }
     return `Студент ${this.course}го курсу ${this.university}, ${this.fullName}`;
 }
 
 get marks(){
-    if (this.isDissmissed){
+    if (this.isDismissed){
         return null;
     }
     return this.marksArr;
 }
 
 set marks(mark){
-    if (this.isDissmissed){
+    if (this.isDismissed){
         return null;
     }
     this.marksArr.push(mark);
 }
 
 getAverageMark(){
-    if (this.isDissmissed){
+    if (this.isDismissed){
         return null;
     }
     const total = this.marksArr.reduce((total, mark) => {
@@ -74,19 +74,19 @@ console.log(`Returning updated marks using marks getter: ${student.marks}`);
 console.log(`Marks average of ${student.fullName} is  ${student.getAverageMark()}`)
 
 console.log(`Dissmissing student ${student.fullName}: ${student.dismiss()}`)
-console.log(student.isDissmissed);
-//console.log(`Returning general not existing student student info using getInfo() method: ${student.getInfo()}`);
-//console.log(`Adding new mark to not existing using marks setter: ${student.marks = 5}`);
-//console.log(`Returning updated marks of not existing student using marks getter: ${student.marks}`);
-//console.log(`Marks average of not existing student ${student.fullName} is  ${student.getAverageMark()}`)
+console.log(student.isDismissed);
+console.log(`Returning general not existing student student info using getInfo() method: ${student.getInfo()}`);
+console.log(`Adding new mark to not existing using marks setter: ${student.marks = 5}`);
+console.log(`Returning updated marks of not existing student using marks getter: ${student.marks}`);
+console.log(`Marks average of not existing student ${student.fullName} is  ${student.getAverageMark()}`)
 
-//console.log(`Recovering student ${student.fullName}: ${student.recover()}`)
-//console.log(student.isDissmissed);
-//console.log(`Returning general student info using getInfo() method: ${student.getInfo()}`);
-//console.log(`Returning marks using marks getter: ${student.marks}`);
-//console.log(`Adding new mark using marks setter: ${student.marks = 5}`);
-//console.log(`Returning updated marks using marks getter: ${student.marks}`);
-//console.log(`Marks average of ${student.fullName} is  ${student.getAverageMark()}`)
+console.log(`Recovering student ${student.fullName}: ${student.recover()}`)
+console.log(student.isDismissed);
+console.log(`Returning general student info using getInfo() method: ${student.getInfo()}`);
+console.log(`Returning marks using marks getter: ${student.marks}`);
+console.log(`Adding new mark using marks setter: ${student.marks = 5}`);
+console.log(`Returning updated marks using marks getter: ${student.marks}`);
+console.log(`Marks average of ${student.fullName} is  ${student.getAverageMark()}`)
 
 // Advanced
 
