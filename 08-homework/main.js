@@ -48,7 +48,7 @@ getAverageMark(){
     const total = this.marksArr.reduce((total, mark) => {
         return total + mark; 
       }, 0);
-      return total / this.marksArr.length;
+      return (total / this.marksArr.length).toFixed(1);
 }
 
 dismiss(){
@@ -66,6 +66,7 @@ recover(){
 const student = new Student ('Вищої Школи Психотерапії м.Одеса', '1', 'Остап Родоманський Бендер');
 student.marksArr = [5, 4, 4, 5];
 
+console.group(`Basic`);
 console.log(`Creating student using class: ${JSON.stringify(student)}`);
 console.log(`Returning general student info using getInfo() method: ${student.getInfo()}`);
 console.log(`Returning marks using marks getter: ${student.marks}`);
@@ -74,19 +75,18 @@ console.log(`Returning updated marks using marks getter: ${student.marks}`);
 console.log(`Marks average of ${student.fullName} is  ${student.getAverageMark()}`)
 
 console.log(`Dissmissing student ${student.fullName}: ${student.dismiss()}`)
-console.log(student.isDismissed);
 console.log(`Returning general not existing student student info using getInfo() method: ${student.getInfo()}`);
 console.log(`Adding new mark to not existing using marks setter: ${student.marks = 5}`);
 console.log(`Returning updated marks of not existing student using marks getter: ${student.marks}`);
 console.log(`Marks average of not existing student ${student.fullName} is  ${student.getAverageMark()}`)
 
 console.log(`Recovering student ${student.fullName}: ${student.recover()}`)
-console.log(student.isDismissed);
 console.log(`Returning general student info using getInfo() method: ${student.getInfo()}`);
 console.log(`Returning marks using marks getter: ${student.marks}`);
 console.log(`Adding new mark using marks setter: ${student.marks = 5}`);
 console.log(`Returning updated marks using marks getter: ${student.marks}`);
 console.log(`Marks average of ${student.fullName} is  ${student.getAverageMark()}`)
+console.groupEnd();
 
 // Advanced
 
@@ -112,6 +112,9 @@ class BudgetStudent extends Student {
 
 const budgetStudent = new BudgetStudent ('JCE', '4', 'Vyacheslav');
 budgetStudent.marksArr = [5, 4, 4, 5];
+
+console.group(`Advanced`);
 console.log(`Creating student using class: ${JSON.stringify(budgetStudent)}`);
 console.log(`Returning general student info using getInfo() method: ${budgetStudent.getInfo()}`);
 console.log(`Returning scolarship: ${budgetStudent.getScolarship()}`);
+console.groupEnd();
