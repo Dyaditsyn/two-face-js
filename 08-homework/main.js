@@ -16,7 +16,7 @@ class Student {
         this.university = university;
         this.course = course;
         this.fullName = fullName;
-        this.marksArr = [5, 4, 4, 5];
+        this.marksArr = [];
         this.isDismissed = false;
     }
 
@@ -63,7 +63,8 @@ recover(){
     
 }
 
-const student = new Student ('Вищої Школи Психотерапії м.Одеса', '1', 'Остап Родоманський Бендер') 
+const student = new Student ('Вищої Школи Психотерапії м.Одеса', '1', 'Остап Родоманський Бендер');
+student.marksArr = [5, 4, 4, 5];
 
 console.log(`Creating student using class: ${JSON.stringify(student)}`);
 console.log(`Returning general student info using getInfo() method: ${student.getInfo()}`);
@@ -95,3 +96,22 @@ console.log(student.isDissmissed);
 // 3. Метод отримання стипендії автоматично викликається кожні 30 секунд післе створення об'єкту. Підказка: викликайте його в constructor
 // 4. Студент отримує стипендію тільки в тому випадку, якщо середній бал у нього вище або дорівнює 4.0
 // 5. Якщо студента виключено, він не отримує стипендію (думаю це було і так очевидно :) )
+
+class BudgetStudent extends Student {
+    constructor (university, course, fullName){
+    super(university, course, fullName)}
+
+    getScolarship(){
+        if ( this.isDissmissed || (this.getAverageMark() < 4 ) ) {
+            return null; }
+
+       return 'Ви отримали 1400 грн. стипендії'
+   }
+
+}
+
+const budgetStudent = new BudgetStudent ('JCE', '4', 'Vyacheslav');
+budgetStudent.marksArr = [5, 4, 4, 5];
+console.log(`Creating student using class: ${JSON.stringify(budgetStudent)}`);
+console.log(`Returning general student info using getInfo() method: ${budgetStudent.getInfo()}`);
+console.log(`Returning scolarship: ${budgetStudent.getScolarship()}`);
