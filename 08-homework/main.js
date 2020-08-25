@@ -99,18 +99,20 @@ console.groupEnd();
 
 class BudgetStudent extends Student {
     constructor (university, course, fullName){
-    super(university, course, fullName)}
+        super(university, course, fullName);
+        setInterval(() => { this.getScolarship() }, 3000);
+    }
 
     getScolarship(){
         if ( this.isDissmissed || (this.getAverageMark() < 4 ) ) {
             return null; }
 
-       return 'Ви отримали 1400 грн. стипендії'
+       return 'Ви отримали 1400 грн. стипендії';
    }
 
 }
 
-const budgetStudent = new BudgetStudent ('JCE', '4', 'Vyacheslav');
+const budgetStudent = new BudgetStudent ('Вищої Школи Психотерапії м.Одеса', '1', 'Остап Родоманський Бендер');
 budgetStudent.marksArr = [5, 4, 4, 5];
 
 console.group(`Advanced`);
