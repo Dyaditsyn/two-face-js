@@ -100,23 +100,34 @@ console.groupEnd();
 class BudgetStudent extends Student {
     constructor (university, course, fullName){
         super(university, course, fullName);
-        setInterval(() => { this.getScolarship() }, 3000);
+        setInterval(() => { this.getScolarship() }, 30000);
     }
 
     getScolarship(){
-        if ( this.isDissmissed || (this.getAverageMark() < 4 ) ) {
-            return null; }
-
-       return 'Ви отримали 1400 грн. стипендії';
+        if ( this.isDismissed ) {
+            return `No such student`; }
+        else if ( (this.getAverageMark() < 4 ) ) {
+            return `You need to improve your grades`; 
+        }
+    return 'Ви отримали 1400 грн. стипендії';
    }
 
 }
 
 const budgetStudent = new BudgetStudent ('Вищої Школи Психотерапії м.Одеса', '1', 'Остап Родоманський Бендер');
 budgetStudent.marksArr = [5, 4, 4, 5];
+const budgetStudent2 = new BudgetStudent ('Вищої Школи Психотерапії м.Одеса', '1', 'Вася Пупкін');
+budgetStudent2.marksArr = [3, 4, 4, 3];
+const budgetStudent3 = new BudgetStudent ('Вищої Школи Психотерапії м.Одеса', '1', 'Іван Петров');
+budgetStudent3.marksArr = [5, 4, 4, 5];
 
 console.group(`Advanced`);
 console.log(`Creating student using class: ${JSON.stringify(budgetStudent)}`);
 console.log(`Returning general student info using getInfo() method: ${budgetStudent.getInfo()}`);
-console.log(`Returning scolarship: ${budgetStudent.getScolarship()}`);
+console.log(`Returning general student info using getInfo() method: ${budgetStudent2.getInfo()}`);
+console.log(`Returning general student info using getInfo() method: ${budgetStudent3.getInfo()}`);
+console.log(`Dissmissing student ${budgetStudent3.fullName}: ${budgetStudent3.dismiss()}`)
+console.log(`Returning scolarship for ${budgetStudent.fullName}: ${budgetStudent.getScolarship()}`);
+console.log(`Returning scolarship for ${budgetStudent2.fullName}: ${budgetStudent2.getScolarship()}`);
+console.log(`Returning scolarship for ${budgetStudent3.fullName}: ${budgetStudent3.getScolarship()}`);
 console.groupEnd();
