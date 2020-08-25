@@ -1,33 +1,91 @@
 "use strict";
 
 // 1. У стдентів повинні бути наступні властивості: university, course, fullName, вони передаються при створенні студента(в конструктор).
-
-
-
 // 2. Створіть метод this.getInfo() -> "Студент 1го курсу Вищої Школи Психотерапії м.Одеса, Остап Родоманський Бендер", 
 // метод повертає сукупну інформацію про курс, учбовий заклад та імені студента.
-
-
-
 // 3. Створіть геттер оцінок this.marks, який повертає масив оцінок студента [5, 4, 4, 5]
-
-
-
 // 4. Створіть сеттер оцінок this.marks = 5, який дозволяє поставити оцінку студенту. Після того, як оцінка поставлена, 
 // геттер повинен повернути масив this.marks -> [5, 4, 4, 5, 5]
-
-
-
 // 5. Створіть метод отримання середнього балу this.getAverageMark() -> 4.6
-
-
-
 // 6. Створіть метод this.dismiss, який "виключить" студента. Після виклику цього методу – ставити студенту оцінки та отримувати їх більше не можна. 
 // (Ніяких помилок, просто повертається завжди null замість масиву оцінок)
-
-
-
 // 7. Створіть метод this.recover, який дозволить поновити студента
+
+class Student {
+    constructor (university, course, fullName){
+        this.university = university;
+        this.course = course;
+        this.fullName = fullName;
+        this.marksArr = [5, 4, 4, 5];
+        this.isDismissed = false;
+    }
+
+getInfo() {
+    if (this.isDissmised){
+        return `Sorry, no such student`
+    }
+    return `Студент ${this.course}го курсу ${this.university}, ${this.fullName}`;
+}
+
+get marks(){
+    if (this.isDissmissed){
+        return null;
+    }
+    return this.marksArr;
+}
+
+set marks(mark){
+    if (this.isDissmissed){
+        return null;
+    }
+    this.marksArr.push(mark);
+}
+
+getAverageMark(){
+    if (this.isDissmissed){
+        return null;
+    }
+    const total = this.marksArr.reduce((total, mark) => {
+        return total + mark; 
+      }, 0);
+      return total / this.marksArr.length;
+}
+
+dismiss(){
+    this.isDismissed = true;
+    return `Student ${this.fullName} dissmised`;
+}
+
+recover(){
+    this.isDismissed = false;
+    return `Student ${this.fullName} recovered`;
+}
+    
+}
+
+const student = new Student ('Вищої Школи Психотерапії м.Одеса', '1', 'Остап Родоманський Бендер') 
+
+console.log(`Creating student using class: ${JSON.stringify(student)}`);
+console.log(`Returning general student info using getInfo() method: ${student.getInfo()}`);
+console.log(`Returning marks using marks getter: ${student.marks}`);
+console.log(`Adding new mark using marks setter: ${student.marks = 5}`);
+console.log(`Returning updated marks using marks getter: ${student.marks}`);
+console.log(`Marks average of ${student.fullName} is  ${student.getAverageMark()}`)
+
+console.log(`Dissmissing student ${student.fullName}: ${student.dismiss()}`)
+console.log(student.isDissmissed);
+//console.log(`Returning general not existing student student info using getInfo() method: ${student.getInfo()}`);
+//console.log(`Adding new mark to not existing using marks setter: ${student.marks = 5}`);
+//console.log(`Returning updated marks of not existing student using marks getter: ${student.marks}`);
+//console.log(`Marks average of not existing student ${student.fullName} is  ${student.getAverageMark()}`)
+
+//console.log(`Recovering student ${student.fullName}: ${student.recover()}`)
+//console.log(student.isDissmissed);
+//console.log(`Returning general student info using getInfo() method: ${student.getInfo()}`);
+//console.log(`Returning marks using marks getter: ${student.marks}`);
+//console.log(`Adding new mark using marks setter: ${student.marks = 5}`);
+//console.log(`Returning updated marks using marks getter: ${student.marks}`);
+//console.log(`Marks average of ${student.fullName} is  ${student.getAverageMark()}`)
 
 // Advanced
 
