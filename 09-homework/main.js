@@ -17,28 +17,28 @@ function generateBlocks(){
     const squares = 25;
     for (let i = 0; i < squares; i++){
         const box = document.createElement('div');
-    document.querySelector('.wrapper').appendChild(box)
-    box.classList.add('box-style');
-    box.style.backgroundColor = generateRandomColor()
+        document.querySelector('.wrapper').appendChild(box)
+        box.classList.add('box-style');
+        box.style.backgroundColor = generateRandomColor();
     }
-
 }
 
 // Advanced зробіть так, щоб квадрати змінювали колір раз на секунду.
 // Щоб квадрати з'явились на сторінці та почали змінюватись, необхідно викликати функцію generateBlocksInterval();
 
-//function generateBlocksInterval(){
+function generateBlocksInterval(){
+    const squares = 25;
+    for (let i = 0; i < squares; i++){
+        const box = document.createElement('div');
+        document.querySelector('.wrapper').appendChild(box)
+        box.classList.add('box-style');
+        box.style.backgroundColor = generateRandomColor();
+        setInterval(() => box.style.backgroundColor = generateRandomColor(), 1000);
+    }
+}
 
-//}
+// Function call 
 
-//const squares = 25;
-
-//for (let i = 0; i < squares; i++){
-//    const box = document.createElement('div');
-//document.querySelector('.wrapper').appendChild(box)
-//box.classList.add('box-style');
-//}
-
-
-generateBlocks();
+//generateBlocks();
+generateBlocksInterval();
 
